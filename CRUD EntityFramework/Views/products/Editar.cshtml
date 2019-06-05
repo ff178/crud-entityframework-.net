@@ -1,0 +1,25 @@
+﻿@model CRUD_EntityFramework.Models.ViewModels.TablaViewModels
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Editar", "products", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d=>d.Id)
+            @Html.LabelFor(d => d.Product)
+            @Html.TextBoxFor(d => d.Product, "", new { @class = "form-control" })
+            @Html.LabelFor(d => d.Quantity)
+            @Html.TextBoxFor(d => d.Quantity, "", new { @class = "form-control" })
+            @Html.LabelFor(d => d.Modified_Date) <br />
+            @Html.EditorFor(d => d.Modified_Date, "", new { @class = "form-control" })
+
+            <div style="padding:5px;">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

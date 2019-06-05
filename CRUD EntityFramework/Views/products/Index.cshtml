@@ -1,0 +1,36 @@
+﻿@model List<CRUD_EntityFramework.Models.ViewModels.ListTablaViewModels>
+    @{
+        ViewBag.Title = "CRUD Entity Framework";
+    }
+
+<h2>@ViewBag.Title</h2>
+<div class="row" style="padding:5px;">
+    <a href="~/products/Nuevo" class="btn btn-primary">Nuevo</a>    
+</div>
+<div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUCT</th>
+                    <th>QUANTITY</th>
+                    <th>MODIFIED_DATE</th>
+                    <th></th>
+                </tr>
+                @foreach (var oElemento in Model)
+                {
+                    <tr>
+                        <th>@oElemento.Id</th>
+                        <th>@oElemento.Product</th>
+                        <th>@oElemento.Quantity</th>
+                        <th>@oElemento.Modified_Date</th>
+                        <th>
+                            <a href="~/products/Editar/@oElemento.Id" class="btn btn-default">Editar</a>  
+                            <a href="~/products/Eliminar/@oElemento.Id" class="btn btn-danger">Borrar</a>  
+                        </th>
+                    </tr>
+                }
+            </table>
+        </div>
+</div>
+
